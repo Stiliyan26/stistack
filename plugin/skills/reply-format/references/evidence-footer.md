@@ -4,6 +4,7 @@ Put this footer last in each reply that did work.
 
 ```
 **Skills used:** <skill names, or "none">
+**Media:** sketch `<path>` | skipped: <reason, e.g. "answer only", "docs edit", "same behaviour">
 **Evidence:**
 - `<command or check I ran>` → <actual result, e.g. "12 passed", "HTTP 200", "0 errors">
 - Not verified: <what I could not check, and why>
@@ -15,6 +16,7 @@ Put this footer last in each reply that did work.
 - Copy the real result from the output. Do not round it up.
 - Name each check that failed or did not run.
 - If you ran no check, write "Evidence: not verified" and name the check that would verify it.
+- Write the Media line in each reply that did work. A skip needs a reason from the skip list in [what-changed.md](what-changed.md). "No time" is not a reason.
 
 Reason: the reader needs proof, not confidence.
 

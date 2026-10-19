@@ -1,6 +1,6 @@
 # What changed
 
-Add this section when a change alters how something works: the app, a tool or Claude's replies. Skip it for refactors, fixes that keep the same behaviour, docs and answers.
+Add this section when a change alters how something works: the app, a UI, a tool, a skill, a prompt or Claude's replies. It applies whatever made the change: Edit, Write, Bash or a subagent. Skip it for refactors, fixes that keep the same behaviour, docs and answers.
 
 `<skill-root>` is the folder that holds this skill's `SKILL.md`.
 
@@ -22,5 +22,7 @@ Add this section when a change alters how something works: the app, a tool or Cl
 - **What I did:** <files and change, one line>
 - **Impact:** <what the user or the app now does differently, one line>
 ```
+
+To show a screenshot as well, copy it to `~/.claude/diagrams/<project>/` first and link the copy. Cleanup deletes `.playwright-mcp/` and temp folders, and a link into them breaks.
 
 Reason: one picture and four lines show the change faster than paragraphs. Keep the PNG under the home folder: some chat panels cannot show images from `/tmp`.

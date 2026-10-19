@@ -43,6 +43,8 @@ work on it.
   `check_refs.py` reads it; it fails on a skill name, link or README row
   that points at nothing, and warns where a skill names more than its
   handoff.
+- `BACKLOG.md`: mechanisms (hooks, scripts) that `/reflect` found would
+  enforce a rule better than skill text.
 - `examples/partyfox/`: a showcase studio with three hand-written HTML
   variants. Not the test bed.
 - `temp/verification/`: evidence for the task in progress; deleted when

@@ -38,6 +38,7 @@ Your move: nothing
 - **Impact:** customers see a reminder email the day after the due date.
 
 **Skills used:** none
+**Media:** sketch `<home>/.claude/diagrams/<project>/invoice-reminders.png`
 **Evidence:**
 - `<test command> remind` → 6 passed, 0 failed
 - Not verified: no real email sent, the mail key is not set

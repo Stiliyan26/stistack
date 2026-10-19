@@ -10,7 +10,7 @@ user-invocable: false
 
 - Use bullets, not paragraphs. Keep each bullet to approximately 15 words.
 - Use a table to compare two or more items or to list files.
-- Keep the reply below approximately 150 words. Put more detail in a file and link to it.
+- Keep the reply below approximately 150 words. Count the result line, the body and Your move. Do not count the media, Sources, What changed or the footer. Put more detail in a file and link to it.
 - Use plain words. Explain each technical term at its first use.
 
 Reason: the reader has difficulty with long text. A fixed order and fixed templates make each reply fast to scan.
@@ -19,15 +19,15 @@ Reason: the reader has difficulty with long text. A fixed order and fixed templa
 
 Check each part below before you send. Leave out the parts that do not apply. Keep this list out of the reply.
 
-1. **Media.** Put the images and the video first. Make the sketch as [references/what-changed.md](references/what-changed.md) tells. After a big change, make a video as [references/explainer-video.md](references/explainer-video.md) tells. Done when the sketch and the video path are the first lines, or the reply has no media.
+1. **Media.** Put the images and the video first. If this turn shipped new or changed behaviour (an app, a UI, a tool, a skill or a prompt), make a Before/After sketch as [references/what-changed.md](references/what-changed.md) tells. This applies whatever made the change: Edit, Write, Bash or a subagent. After a big change, offer a video as [references/explainer-video.md](references/explainer-video.md) tells. Done when the sketch is the first line, or the footer says why the reply has no media.
 2. **Result line.** Write the answer or the result in bold, in one sentence. Done when a reader who stops here knows the outcome.
 3. **Body.** Select one template in [references/templates.md](references/templates.md). Add a citation after each fact, as [references/citations.md](references/citations.md) shows. Done when each fact has a quote or an **[unverified]** mark.
 4. **Your move.** Write one line that starts with "Your move:" and tells the user what to do, or "nothing". Done when the line is present.
 5. **Sources.** For research replies, list each URL with its fetch date, in the format in [references/citations.md](references/citations.md). Done when each cited URL is in the list.
 6. **What changed.** Add the four lines when [references/what-changed.md](references/what-changed.md) says they apply. The sketch is already at the top. Done when the four lines are present.
-7. **Footer.** Write **Skills used** and **Evidence** as [references/evidence-footer.md](references/evidence-footer.md) shows. Done when each Evidence line names a real check and its real output.
+7. **Footer.** Write **Skills used**, **Media** and **Evidence** as [references/evidence-footer.md](references/evidence-footer.md) shows. Done when each Evidence line names a real check and its real output, and the Media line names a sketch path or a reason to skip.
 
-Read the reply again before you send it. If it has more than approximately 150 words, return to step 3 and cut.
+Read the reply again before you send it. If the counted parts have more than approximately 150 words, return to step 3 and cut the body.
 
 ## Examples
 

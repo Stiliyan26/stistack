@@ -1,6 +1,6 @@
 ---
 name: interactive-explanation
-description: Shows what a change does as a local page with videos, and writes the PR description from the same script. Use when the user asks to explain a change, to make a video or a walkthrough of it, or to write a PR description, when a finished change has something to see, or when the user runs /interactive-explanation with a slug and a mode (task or pr).
+description: Shows what a change does as a local page with videos, and writes the PR description from the same script. Use after you finish a new feature, a new flow or a change across several files and the user says yes to a video, when the user asks to explain a change, to make a video or a walkthrough of it, or to write a PR description, when a finished change has something to see, or when the user runs /interactive-explanation with a slug and a mode (task or pr).
 ---
 
 # Interactive explanation

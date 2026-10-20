@@ -2,7 +2,6 @@
 name: improve-skill
 description: Audits, creates and improves Agent Skills (folders with a SKILL.md) against Anthropic's skill authoring best practices, the Claude Code skills docs and the prompting guides for current Claude models. Reports every rule as pass, fail or not applicable with file and line evidence, checks that a skill stands alone and names no skill but its handoff, rewrites rules in Simplified Technical English, and changes nothing until the user approves. Use when the user asks to audit, review, check, score, improve, shorten, refactor or rewrite a skill or a folder of skills, to create a new skill or turn a repeated workflow into one, to update an old skill for newer models, to run the skill validator, or runs /improve-skill.
 argument-hint: "[skill folder]"
-license: MIT
 ---
 
 # Improve a skill

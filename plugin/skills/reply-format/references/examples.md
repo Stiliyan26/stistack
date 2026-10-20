@@ -37,7 +37,7 @@ Your move: nothing
 - **What I did:** added the reminder job and its tests.
 - **Impact:** customers see a reminder email the day after the due date.
 
-**Skills used:** none
+**Skills used:** reply-format [References: templates, what-changed, evidence-footer]
 **Media:** sketch `<home>/.claude/diagrams/<project>/invoice-reminders.png`
 **Evidence:**
 - `<test command> remind` → 6 passed, 0 failed

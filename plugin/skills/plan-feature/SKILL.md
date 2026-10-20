@@ -85,10 +85,10 @@ Reason: unchecked answers hide errors. Questions that the code answers waste the
 
    Done when `plan.md` has no `interview in progress` mark and every feature file has every section above Driving.
 
-6. **Fresh-eyes review.** Run the `review` skill in plan mode, once, on `plan.md` and the feature files.
-   Fix a clear finding. Ask the user about a product choice, numbered on from the interview. Drop a wrong finding. Go back to step 4 if a finding changes the split.
+6. **Fresh-eyes review.** Run the `review` skill once with `--plan` on `plan.md` and the feature files. Its reviewers fix clear gaps in the plan files and reply in chat.
+   Ask the user each `left for you` question, numbered on from the interview; a `my call (review)` mark stays in the plan until the user answers, then becomes the answer. Undo a wrong fix. Go back to step 4 if a finding changes the split.
 
-   Done when every finding is fixed, asked or dropped.
+   Done when every finding is fixed, asked or undone, and no `my call (review)` mark is left without a Q-number.
 
 7. **Approval.** The user reads `plan.md` and **every feature file in full** and says so. Then, and only then, set `Status: Approved (date, by the user)` on the plan and `approved` on each feature file. Report and stop:
 

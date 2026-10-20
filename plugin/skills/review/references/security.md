@@ -64,5 +64,5 @@ Fix each finding as the mode says. A fix that is hard to undo goes to
 - **Demonstration:** the exact request, payload or input that triggers it.
   "An attacker could craft an input" is not a finding.
 
-Skip a finding that an earlier review in `reviews/` already records for the
-same location and cause. Give each ruled-out category one summary line.
+Skip a finding that an earlier review commit (`git log --grep "^review:"`)
+already fixed for the same location and cause. Give each ruled-out category one summary line.

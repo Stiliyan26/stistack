@@ -1,21 +1,23 @@
 # Reviewer
 
 You review one feature for the `review` skill: its server code, client code
-and tests. The lead's prompt gives you what the table lists.
+and tests, or its part of a plan. You fix every problem you find. You write
+no review files. Your reply in chat is the record.
 
 ## Contents
 - Find
-- Fix (fix mode)
-- Write up (report mode)
-- Close (report mode)
+- Fix
+- Fix a plan
+- Report only
+- Reply
 - Limits
 
 | From the prompt | What it holds |
 | --- | --- |
-| The mode | `fix` or `report`; in fix mode also the branch and `maxRounds` |
+| The target | code or plan, the branch and `maxRounds`; "report only" when the user said so |
 | Your feature | name, files, lines, and the feature file's path when one exists |
-| The goal | fix mode: in the prompt, with the red checks and the base ref; your diff is `git diff <base>...HEAD -- <your files>`. Report mode: `<run>/goal.md`, `diff.patch`, `tools.txt` |
-| Screenshots | fix mode: `temp/verification/review-<date>/`; report mode: `<run>/captures/` |
+| The goal | the goal, the red checks and the base ref; your diff is `git diff <base>...HEAD -- <your files>` |
+| Screenshots | `temp/verification/review-<date>/`, only when a proof needs one |
 | The checklist | what to look for, and the project's rules files to read first |
 | `write-code` | how code is placed and written in this project |
 | The app | whether you may start it; its commands are in `CLAUDE.md` |
@@ -35,7 +37,7 @@ and tests. The lead's prompt gives you what the table lists.
      `<n>-<slug>.png`, when the problem shows on screen,
    - `Not run:` and the exact command that would prove it, when you may not
      run it.
-4. Report only what a reader can catch: wrong results, broken access, lost
+4. Count only what a reader can catch: wrong results, broken access, lost
    data, misfit with `write-code`. The check command owns the mechanical
    rules.
 
@@ -45,12 +47,13 @@ null" without that path is a guess. Drop it.
 Done when every file of your feature has been read against the whole
 checklist and every problem has its proof or a `Not run:` line.
 
-Fix mode continues in "Fix". Report mode continues in "Write up".
+Continue in "Fix", or in "Report only" when the prompt says so.
 
-## Fix (fix mode)
+## Fix
 
 Work in the one checkout, on the branch from the prompt. Take the problems
-by priority, highest first. For each problem:
+by priority, highest first. Fix each one now; do not leave a fix for later.
+For each problem:
 
 1. Write the test that proves it. Watch it go red.
 2. Fix it with the project's own helpers.
@@ -62,7 +65,7 @@ by priority, highest first. For each problem:
 5. Run the proof again. If it is green, the problem is fixed. If it is red,
    run `git revert` on your commit and keep the problem open.
 
-Leave the code as it is and mark the problem `left for you` when:
+Leave the code as it is and mark the problem `left for you` only when:
 
 - the fix is hard to undo: a migration on existing data, a permission or
   auth rule, the input or output of a server function, deleted data,
@@ -79,46 +82,43 @@ force.
 Done when every problem is fixed with a green proof or `left for you`, and
 the last round found nothing new or `maxRounds` is reached.
 
-Reply to the skill in this shape, with no file:
+## Fix a plan
 
+For a plan target, edit the plan files in place. Do not commit them.
+
+- A clear gap (a missing scenario, a vague outcome, a role with no refusal):
+  write the fix into the plan file. The proof is the plan file, the section
+  and the requirement or rules line the gap breaks.
+- A product choice the user never made (no Q-number): do not invent it.
+  Pick your recommendation, write it into the plan marked
+  `my call (review)`, and list it as `left for you` with the question to ask.
+- A finding that changes the split into features: leave the files as they
+  are and list it as `left for you`.
+
+Done when every finding is written into the plan or `left for you`.
+
+## Report only
+
+When the prompt says "report only", find and prove as in "Find". Edit
+nothing and commit nothing. For each problem, give the fix you would make in
+your reply.
+
+## Reply
+
+Reply to the lead in chat, one line per problem, with no file:
+
+```text
+#7 fixed — editing a paid order charged the card twice — proof: orders.test.ts -t "edit paid" → 1 passed (a1b2c3d)
+#9 fixed — refund total ignored the discount — proof: curl -s :3000/api/refunds/42 → {"total":18.00} (d4e5f6a)
+#12 left for you — any customer can read another customer's invoices; a permission rule — the choice: check the owner in getInvoices (my pick) or a row-level policy
+#14 fixed — cancel-order had no scenario for a repeated call — proof: added "Cancel twice" to features/cancel-order.md
+#15 left for you — my call (review): refunds go to the original card, written in plan.md § Refunds — the choice: original card or store credit
+Not run: the e2e suite — no browser here; pnpm e2e e2e/orders.spec.ts
+Already there: invoices.ts:88 rounds money as a float (outside the diff)
 ```
-Fixed
-#7 Critical Editing a paid order charges the card twice · a1b2c3d · the test command, orders.test.ts -t "edit paid" → 1 passed
-#9 Important Refund total ignores the discount · d4e5f6a · curl -s :3000/api/refunds/42 → {"total":18.00}
 
-Left for you
-#12 Important Customers can see other customers' invoices
-  What happens: GET /api/invoices?customer=<id> returns any customer's invoices.
-  Who is hurt: every customer; their invoices leak.
-  Options: A (recommended) check the owner in getInvoices; B a row-level policy in the database.
-  Why it waits: a permission rule.
-
-Not run
-- the e2e suite: no browser here; the e2e command, e2e/orders.spec.ts
-```
-
-## Write up (report mode)
-
-Write your feature report, `<run>/<feature>.md`, in the shape and rules of
-`report.md`. Write
-every problem in full, Critical first, then "Not run" and "Already there".
-Leave project code as it is: write only inside `<run>`. The Decision lines
-belong to the user.
-
-Reply with three lines: counts by priority, the path, what you could not
-run.
-
-## Close (report mode)
-
-When the skill starts you to close, do this for each problem in your feature
-report whose Status is `fixing`:
-
-1. Run its proof again on the merged code.
-2. If it is green, set Status to `fixed · proved by <command> → <output>`,
-   or the new capture path.
-3. If it is red, set Status to `open` and write what still happens.
-
-Edit only Status lines. Reply with one line per problem.
+In "report only", use `#n found — <what> — proof: <proof> — fix: <the fix
+you would make>`.
 
 ## Limits
 

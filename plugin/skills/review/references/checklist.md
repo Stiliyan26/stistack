@@ -152,8 +152,9 @@ in the diff delivers?
 ## Plan mode
 
 When the target is a plan (no code yet), check `plan.md` and every feature
-file instead. You did not see the interview. Find what is missing. Do not
-rewrite anything. Write one line per finding: where → what is missing.
+file instead. You did not see the interview. Find what is missing and fix
+it in the plan file, as reviewer.md "Fix a plan" says. A decision the user
+never made gets your recommendation, marked `my call (review)`.
 
 - Every requirement in the brief maps to a done-when line and a feature;
   nothing in the plan is out of scope.
@@ -177,14 +178,14 @@ rewrite anything. Write one line per finding: where → what is missing.
 - Parts nobody asked for, layers with one user, options "for later".
 - Decisions the plan makes that the user never made (no Q-number).
 
-Let `Where` point at the plan file and section. Let "Proved by" name the
+The proof of a plan problem is the plan file and section, and the
 requirement or rules line the problem rests on.
 
 ## Not problems
 
-- What `tools.txt`, the linter or the formatter already catches.
+- What the check command, the linter or the formatter already catches.
 - Style.
 - Taste.
 - Something a rules file marks as an open question.
 - In a diff review, something in lines the diff didn't touch and didn't make
-  reachable. Put it under "Already there" in the feature report, one line each.
+  reachable. List it under "Already there" in your reply, one line each.

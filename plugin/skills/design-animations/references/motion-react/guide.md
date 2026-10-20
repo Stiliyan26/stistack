@@ -167,6 +167,8 @@ const clip  = useMotionTemplate`inset(0px ${clipValue}% 0px 0px)`;      // tagge
 
 `drag` keeps momentum on release by default, which feels natural for a card being flung and wrong for a simple reposition — turn it off with `dragMomentum={false}`. `dragConstraints` takes a ref and bounds the element to it.
 
+Keep drawers, dialogs and popovers **controlled**: own `open` in state and pass `open`/`onOpenChange`, so code can close them after an action and the exit animation still plays.
+
 ## Accessibility
 
 - `useReducedMotion()` branches values in a component; `<MotionConfig reducedMotion="user">` handles a whole app by animating only opacity and background.
